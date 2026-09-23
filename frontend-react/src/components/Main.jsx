@@ -1,8 +1,12 @@
 import React from 'react'
 import Button from './Button'
+import Header from './Header'
+import Footer from './Footer'
 
 const Main = () => {
     return (
+
+
         <div className='mx-auto max-w-4xl px-4'>
             <div className='rounded-md bg-[#293136] p-6 text-center space-y-4'>
                 <h2 className='text-xl font-medium md:text-2xl'>Stock Prediction Portal</h2>
@@ -14,9 +18,10 @@ const Main = () => {
                     averages, essential indicators widely used by stock analysts
                     to inform trading and investment decisions.
                 </p>
-                <Button text="Login now"/>
+                <Button text="Login now" url="/register" />
             </div>
         </div>
+
     )
 }
 
