@@ -17,11 +17,8 @@ const Register = () => {
         const userData = {
             username, email, password
         }
-        console.log("user data",userData)
         try {
             const response = await axios.post("http://localhost:8000/api/v1/register/", userData)
-            console.log("server response :",response.data)
-            console.log("Registration Successful")
             setErrors({})
             setUsername('')
             setEmail('')
@@ -29,7 +26,6 @@ const Register = () => {
             setSuccess(true)
         } catch (error) {
             setErrors(error.response.data)
-            console.error("Registration Failed", error.response.data)
         }finally{
             setLoading(false)
         }
@@ -41,7 +37,7 @@ const Register = () => {
                 <h2 className='mb-6 text-2xl font-medium'>Create an Account</h2>
                 <form action="" className='flex flex-col' onSubmit={handleForm}>
                     <label htmlFor="">Username</label><input type="text" name="" id="" placeholder='john_doe' value={username} onChange={(e) => setUsername(e.target.value)} className='rounded-md mt-1 outline-none bg-slate-100 px-3 py-1.5 text-black' />
-                    {error.username && <div className='text-sm text-red-700 tracking-wide'>{error.username}</div>}
+
                     <label htmlFor="" className='mt-3'>Email</label><input type="email" name="" id="" placeholder='john@example.com' value={email} onChange={(e) => setEmail(e.target.value)} className='rounded-md mt-1 outline-none bg-slate-100 px-3 py-1.5 text-black' />
                     {error.email && <div className='text-sm text-red-700 tracking-wide'>{error.email}</div>}
                     <label htmlFor="" className='mt-3'>Password</label><input type="password" name="" id="" placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)} className='rounded-md mt-1 outline-none bg-slate-100 px-3 py-1.5 text-black' />
